@@ -1,0 +1,245 @@
+body {
+	font : 100% "Times New Roman", Times, serif;
+	color : #0066cc;
+	background : #184470;
+	margin : 0;
+      }
+.accessaid2, h1 {
+	position : absolute;
+	height : 0;
+	overflow : hidden;
+      }
+.accessaid, h1 {
+	position : absolute;
+	height : 0;
+	overflow : hidden;
+      }
+#header {
+	background : #184470 url(images/banner2.png) no-repeat;
+	height : 5vw;
+	margin : 0 auto;
+	border-left : 214px solid #184470;
+      }
+a {
+text-decoration: none;
+}      
+#navigation {
+	position : absolute;
+	top : 9.5vmin;
+	left : 1%;
+	right : 10%;
+	width : 15%;
+	color : #e4ecef;
+	font-size : 1.8vw;
+      }
+#rightnavigation {
+	position : absolute;
+	top : 0vh;
+	left : 83%;
+	color : #000;
+	font-size : 1.6vw;
+      }
+#navigation ul {
+	margin : 0 0 2em 0;
+	padding : 0;
+	list-style : none;
+	color : #e4ecef;
+      }
+#rightnavigation ul {
+	margin : 100% 0 1em 0;
+	padding : 0;
+	list-style : none;
+	color : #000;
+      }      
+#navigation ul a {
+	color : white;
+	text-decoration : none;
+	display : block;
+	background : #4674b2;
+	padding : 0 0.5em;
+	margin : 0 2em 1px 1em;
+	color : #e4ecef;
+	box-shadow :0 10px 10px #000;
+      }
+#rightnavigation ul a {
+	color : white;
+	text-decoration : none;
+	display : block;
+	background : #4674b2;
+	padding : 0 0.5em;
+	margin : 0 1em 1px 1em;
+	color : #e4ecef;
+	box-shadow : 0 10px 10px #000;
+      }      
+#navigation a:visited {
+	color : #e4ecef;
+      }
+#navigation a:hover {
+	background : #5096f0;
+      }
+#rightnavigation a:hover {
+	background : #5096f0;
+      }
+#content {
+        background : #e4ecef;
+        padding : 0.0em 2.5em;
+        border-radius: 15px 15px 15px 15px;
+        border-radius: 15px 15px 15px 15px;
+        width : 62%;
+        float : right;
+        margin-right : 17%;
+        margin-left : 30%;
+        border : 0px;
+      }
+#gal_content {
+        background : #e4ecef;
+        padding : 0.0em 2.5em;
+        border-radius: 15px 15px 15px 15px;
+        width : 62%;
+        float : right;
+        margin-right : 17%;
+        margin-left : 30%;
+        border : 0px;
+      }
+#galnavigation {
+	top : 0px;
+	left : 23%;
+	width : 17%;
+	color : #000;
+      }
+#galnavigation a:visited {
+	color : #184470;
+	font-style : italic;
+	font-size  : 90%;
+      }
+#galnavigation a:link {
+	color : #184470;
+	font-style : italic;
+	font-size  : 90%;
+      }
+#galnavigation a:hover {
+	background : #184470;
+	color : #fff;
+	box-shadow : 0 10px 10px #000;
+      }
+#galnavigation ul {
+	margin : 100% 0 1em 0;
+	padding : 0;
+	list-style : none;
+      }
+#container {
+/*position : relative;
+width : 100%;
+border : solid #036;
+border-width : 0 0px;
+margin : auto;*/
+}
+#content img {
+        height : 200px;
+        padding : 0;
+        border : 0 solid #333;
+        float : right;
+        margin : .5em 0em 2em 2em;
+      }
+#content img.icon {
+	height : 120px;
+        width :120px;
+	padding : 0;
+	border : 0 solid #333;
+	float : right;
+      }
+#content img.poems {
+	height : 1200px;
+	padding : 0;
+	border : 0 solid #333;
+	float : right;
+      }
+#footermainPan {
+	height : 10%;
+	color : #2f5958;
+	margin : 0 auto;
+	clear : both;
+	padding : 6px 0 0;
+      }
+#playlist tbody tr.even td {
+      background-color : #00cc66;
+}
+#playlist tbody tr.odd  td {
+      background-color: #000;
+    }
+#footerPan {
+	width : 100%;
+	position : relative;
+	margin : 0 auto;
+      }
+#footerPan ul {
+	width :50%;
+	height : 0px;
+	position : relative;
+	margin : 0 auto;
+	color : #e0f6f0; 
+	text-shadow : 2px 2px 7px #111;  
+	text-align : left;
+	border : none; 
+	font-size : 1.5em; 
+	font-weight : bold;
+	list-style-type: none;
+      }
+#footerPan li {
+	float: left;
+}
+#footerPan ul li a {
+	padding : 0 10px 0;
+	color : #fff;
+	background : #184470;
+	text-decoration : none;
+	font-size : 13px;
+}
+#footerPan ul li a:hover {
+        text-decoration : underline;
+}
+#footerPan p.copyright {
+	width : 250px;
+	margin : 10px 0 0 2px;
+	position : relative;
+	left : 40%;
+	color : #fff;
+}
+
+/*
+ * Special fonts for collaborators only
+ */
+.colab{
+  color  : #0066cc;
+  text-align:left;
+  border:none;
+  font-size : 1.5em;
+  font-style: italic; 
+  font-weight: bold;
+}
+/* Fonts */
+h1{
+  position : absolute;
+  height : 0;
+  overflow : hidden;
+  color : #0066cc;
+}
+h2{
+  font-size : 200%;
+  color : #0066cc;
+}
+h3{
+  font-size : 125%;
+  color : #0066cc;
+}
+dt.item{
+  font-size :100%;
+  color     :#096cdb;
+  font-weight : bold;
+}
+.bibitem .bibauth{font-weight : bold;font-size: 16px;}
+.bibitem .bibtitle{color: grey;font-style : italic;}
+.bibitem .bibpub{color:"#1160a2";font-family: Tahoma;display: block;font-style : normal;}
+
+.row { clear:both}
+.column { display:inline-block; width:30%; vertical-align: top;}

@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"
+>
+<html> 
+<head>
+<title>Rudra Banerjee</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<style type="text/css" media="all">
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1>
+      Rudra Banerjee 
+    </h1>
+  </div>
+  <div id="navigation">
+    <!--<p><a href="#content" class="accessaid">Skip navigation</a></p>-->
+    <ul>
+      <li>
+      <a href="aboutme.html">About Me</a>
+      </li>
+      <li>
+      <a href="work.html">Work</a>
+      </li>
+      <li>
+      <a href="passion.html" style='background-color: #6da8f8'>Passion</a>
+      </li>
+      <li>
+      <a href="gallery.html">Gallery</a>
+      </li>
+    </ul>
+  </div>
+  <div id="rightnavigation">
+    <ul>
+      <li>
+      <a href="#" style='background-color: #6da8f8'>Linux Troubleshoot</a>
+      </li>
+      <li>
+      <a href="vi.html">Vi/Gvim</a>
+      </li>
+      <li>
+      <a href="poem.html">Bengali Poems</a>
+      </li>
+      <li><a href="packs.html">Softwares</a>
+      </li>
+    </ul>
+  </div>
+  <div id="content">
+    <h2>Linux Troubleshoot</h2>
+    <h3><font color="red"> Too old and not maintained</font></h3>
+    <a name="list"></a>
+    <ol>
+      <li>
+      <a href="#You have no name"> <font color="#114885" >You have no name!!!!!!</font></a>
+      <br>
+      </li>
+      <li>
+      <a href="#Firefox is already running, but is not responding."><font color="#114885">Firefox is already running, but is not responding.</font></a>
+      </li>
+      <li>
+      <a href="#Server is already active for display 0"><font color="#114885">Fatal server error Server is already active for display 0</font></a>
+      </li>
+      <li>
+      <a href="#X11 connection"><font color="#114885">X11 connection rejected because of wrong authentication.</font> </a>
+      </li>
+      <li>
+      <a href="#host key"><font color="#114885"> WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</font></a>
+      </li>
+      <li>
+      <a href="#ssh-passwd"> <font color="#114885" >SSH without password</font></a>
+      <br>
+      </li>
+    </ol>
+    <ol>
+      <li>
+      <a name="You have no name"><font color="#114885">You have no name!!!!!!</font></a>
+      <br>
+      </li>
+      Some times when you invoke your terminal, it prompts like 
+      <br>
+      <tt>id: cannot find name for user ID ****<br> id: cannot find name for group ID ****<br> id: cannot find name for user ID ****<br> [I have no name!@machine1 ~]$</tt>
+      <br>
+      This happnes when you are an user in NIS domain and the server fails to bind NIS domain, i.e. your server fails to resolve your identity. The <tt>user ID &#038; group ID</tt> are your identification to the server and permission. 
+      <br>
+      To solve this problem, login as root and type 
+      <br>
+      <tt>#service ypbind restart</tt>
+      <br>
+      You will see prompt like 
+      <br>
+      <tt>Shutting down NIS services: [ <FONT color="Green"> OK </FONT></a>]<br> Binding to the NIS domain: [ <FONT color="Green"> OK </FONT> ]<br> Listening for an NIS domain server. </tt>
+    <br>
+    which will try to bind the client again, and your problem will be over. If ypbind fails, i.e. it shows [ <FONT color="Red">FAILED</FONT> ] in place of [ <FONT color="Green">OK</FONT> ], contact your system administrator. Its probably problem with server. <a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+    <li>
+    <a name="Firefox is already running, but is not responding."><font color="#114885">Firefox is already running, but is not responding. </font></a>
+    </li>
+    <p>
+    The heart of the matter is you can have only one session of firefox per profile; so unless you have to kill the firefox existing application you can't start a new one!!! But sometimes its harder then what it seems; for the session continues even you restart the machine; or even the command <tt>$ ps aux|grep firefox</tt> does not show any such process! The reason behind this is when you run a session, it protects that session by creating a file "<tt>.parentlock</tt>" and a broken symbolic link "<tt>lock</tt>" in your profile directory; and the link is still existing. So You can't use the profile. 
+    </p>
+    The solution of this problem is surprisingly easy. Just remove this two file and you will be through. <a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+    <li>
+    <a name="Server is already active for display 0">
+      <font color="#114885">Fatal server error Server is already active for display 0</font></a>
+    </li>
+    When you get an error like 
+    <br>
+    <tt>Fatal server error:<br> Server is already active for display 0<br> If this server is no longer running, remove /tmp/.X0-lock<br> and start again.<br></tt> This is display number(0, default) and you can't run two display in same system with identical display number. If you wan't to check if any xserver is really running, invoke <tt> ps aux | grep `cat /tmp/.X0-lock`</tt> and this will yeild an output 
+    <br>
+    <br>
+    <tt>164:foo 7977 0.0 0.1 3928 760 pts/1 S+ 23:21 0:00 grep -i --colour -n 14847 </tt>
+    <br>
+    foo is user's name, the person running that startx session. 
+    <br>
+    To run your session, you have two option 
+    <br>
+    1) become superuser and kill the the corresponding PID 
+    <br>
+    2) or, in a better way, start a different X-session by invoking a command like 
+    <br>
+    <tt>startx -- :1</tt>
+    <br>
+    to start a server with display 1(I will prefer this option).<a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+    <li>
+    <a name="X11 connection"><font color="#114885">X11 connection rejected because of wrong authentication.</font></a>
+    </li>
+    So the problem is explicit enough. The only way is changing the corrupted authentication. Here is the way of doing this: 
+    <br>
+    enable SSHD as to start with the "-4" option. Amend the <tt>/etc/sysconfig/sshd</tt> file with <tt>OPTIONS="-4"</tt>. 
+    <br>
+    if you're using RedHat (or Fedora), please rename or remove <tt>/etc/ssh/sshrc</tt>. 
+    <br>
+    make sure X11forwarding options are enabled in <tt>sshd_config</tt> and <tt>ssh_config</tt> under <tt>/etc/ssh</tt>. <a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+    <li>
+    <a name="host key"><font color="#114885"> WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</font></a>
+    </li>
+    <p>
+    As the most of the Linux error list, this also states quite simply what is going wrong. When you remotelogin to a system for the first time, it creates a RSA key for you. You must have seen the prompt like: 
+    <br>
+    <div align="left">
+      <tt>The authenticity of host 'snbpc09 (192.168.50.203)' can't be established.<br> RSA key fingerprint is 6d:34:03:01:0c:fa:21:b5:22:2c:b0:c1:76:ee:ac:0f.<br> Are you sure you want to continue connecting (yes/no)?</tt>
+    </div>
+    and you are allowed to proceed only if you allow the machine to generate the key. 
+    </p>
+    <p>
+    Now if the remote mache is reinstalled/upgraded or simply formatted, the it will get a new identity, though the NAME or IP may remain the same. so when you try to ssh there again, the existing key of that machine that you have saved in your account does not matches the new one; hene your permission is blocked. 
+    </p>
+    <p>
+    To solve the , just read the error message, 
+    <br>
+    <tt> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<br> @ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @<br> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<br> IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!<br> Someone could be eavesdropping on you right now (man-in-the-middle attack)!<br> It is also possible that the RSA host key has just been changed.<br> The fingerprint for the RSA key sent by the remote host is<br> e3:70:bf:14:d7:59:85:fd:ed:f0:a7:44:f4:e7:e4:d0.<br> Please contact your system administrator.<br> Add correct host key in /home/whoeveriam/.ssh/known_hosts to get rid of this message.<br> Offending key in /home/whoeveriam/.ssh/known_hosts:1<br><br> RSA host key for snbpc04 has changed and you have requested strict checking.<br> Host key verification failed.<br>
+    </tt> The necessary information is given here for you...<FONT color="Maroon">Add correct host key in /home/whoeveriam/.ssh/known_hosts</FONT>
+    <br>
+    Just remove the appropriate key from the .ssh/known_hosts file and you will be done <a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+    <li>
+    <a name="ssh-passwd"><font color="#114885">SSH without password</font></a>
+    <br>
+    </li>
+    SSH uses public-key cryptography to authenticate the remote computer and allow the remote computer to authenticate the user. Each time you login to a new (remote) machine, your host machine generates a new key in your <tt>.ssh/known_hosts</tt> file. So, the way to login to a remote machine without password is to put your key in that machine. Here is the stape by step instruction of doing that. 
+    <br>
+    Assume your local login is a@A and want to login as b@B at machine B. 
+    <br>
+    <br>
+    <tt>[a@A~]$ ssh-keygen -t rsa</tt>
+    <br>
+    this will ask for a passphrase, keep it empty. Now type: 
+    <br>
+    <br>
+    <tt>[a@A~]$ cat .ssh/id_rsa.pub | ssh b@B 'cat >> .ssh/authorized_keys'<br> b@B's password: "your passwd in machine B for the last time!"</tt>
+    <br>
+    And you are done. 
+    <br>
+    <a href="#list"><IMG src="images/top.png" alt="top" width="52" height="43" align="left" border="0"></a>
+    <br>
+    <br>
+    <br>
+  </div>
+            </ol></font>
+      </div>
+    </div>    <div id="footermainPan">
+      <div id="footerPan">
+        <ul>
+<li>
+<a href="http://www2.warwick.ac.uk/fac/sci/physics/staff/research/banerjeer">Personal Home Page</a>| 
+</li>
+<li>
+<a href="http://www2.warwick.ac.uk/fac/sci/physics/" target="_blank">Department of Physics page</a>  
+</li>
+<!--       <li>
+            <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-html401-blue" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+          </li>!-->
+        </ul>
+      </div>
+    </div> 
+  </body>
+</html>

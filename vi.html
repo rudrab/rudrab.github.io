@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" 
+>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Rudra Banerjee</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="all">
+    </style>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>
+           Rudra Banerjee 
+        </h1>
+      </div>
+      <div id="navigation">
+        <!--<p><a href="#content" class="accessaid">Skip navigation</a></p>-->
+        <ul>
+          <li>
+            <a href="aboutme.html">About Me</a>
+          </li>
+          <li>
+            <a href="work.html">Work</a>
+          </li>
+          <li>
+            <a href="passion.html" style='background-color: #6da8f8'>Passion</a>
+          </li>
+          <li>
+            <a href="gallery.html">Gallery</a>
+          </li>
+        </ul>
+      </div>
+      <div id="rightnavigation">
+        <ul>
+          <li>
+            <a href="linux.html">Linux Troubleshoot</a>
+          </li>
+          <li>
+            <a href="#" style='background-color: #6da8f8'>Vi/Gvim</a>
+          </li>
+          <li>
+            <a href="poem.html">Bengali Poems</a>
+          </li>
+          <li><a href="packs.html">Softwares</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <td>
+                <!-- <font color="#1160a2">--!>
+          <div>
+            <h2>
+               Vi: The Text Editor 
+            </h2>
+            <h3><font color="red"> Too old and not maintained</font></h3>
+            <p>
+               The Vi or Vim (i.e. Vi improved) is the most  used key-board based text editor in Unix like system. Here I have summarize the most used (and also not so commonly used) key-board shortcuts in Vim. 
+            </p>
+             What you must understand is that there is no rigid way of using keyboard shortcuts(hereafter <em>ksc</em>). The beauty is that you can always configure <em>ksc</em>s to make them more handy for you. Here I have listed the defaults only. 
+          </div><!--<p>But even before we start , lets clarify some nomelclature:</p>
+<ol>
+  <li>^X=Ctrl+X</li>
+  <li>EX=Command Mode(Esc opens this mode)</li>
+  <li>Ins=Insert Mode(i/insert)</li>
+  <li>Rep=Replace Mode(Esc r)</li>
+  <li>#command= a command line prompt</li>
+  <li>!=&gt;invokes command line mode in Vim</li>
+</ol>--><div>
+            <h3>
+              What you need not know
+            </h3>
+            <p>
+               Well, there is hardly anything you don't want to know, but as a beginner, you may skip few thing as how Vi works. Like the terminal you use or, even more importently, your shell. As far as text editing is concerned, it hardly matters if you use <em>Bash/Csh/Sh/Ksh</em>. I personally prefer <em>Bash</em> and its preety similar to sh, and I am yet to found any instance where vi fails for other shell. 
+            </p>
+            <p>
+               You may check your shell type by <kbd><tt>echo $SHELL</tt></kbd> and if you are not satisfied with the shell , you can always change them by simply typing the shell name in which you are most comfortable. But my advice is to stay with the shell that your system admin. offers you. 
+            </p>
+            <h3>
+              Let's Start with Vi(or Vim)
+            </h3>
+            <p>
+               Remember, the <em><strong>BEST</strong></em> tutorial available for vim is :<strong>help</strong>. and ofcourse, <strong>man</strong>. Here, I am just keeping a very few commands as a cheatsheet. With this breif introduction, you are now ready to start vi. But if you are a first time user, don't experiment on any existing file; better create a new file by typing <kbd><tt>vi test</tt> </kbd> and the terminal will open a new file for you, named <em>test. </em>now first go to insert mode by pressing <strong>i</strong> and you are ready to write on it. 
+            </p>
+            <p>
+               When you want to finish your writing, go to command mode, and then type <kbd>:wq </kbd>where <strong>w</strong> is to save your last edit and <strong>q </strong>means quiting the current file. 
+            </p>
+            <p>
+               Now I ll breakup the whole game in few part and try to explain you how to gwt maximum out of vim, well , as far as I know (remember, I can only tell you wat I know and even after so many years of using Vi and linux in general, when I still see other people doing, I always get amused by learning new tricks and commands. There are hundreds of way of doing the same thing afterall)! 
+            </p>
+            <a name="list"></a>
+            <ol>
+              <li>
+                <a href="#Save%20and%20Quit"><font >Save and Quit</font></a>
+              </li>
+              <li>
+                <a href="#Moving%20the%20Cursor"><font >Moving the Cursor</font></a>
+              </li>
+              <li>
+                <a href="#Inserting%20Text"><font >Inserting Text</font></a>
+              </li>
+              <li>
+                <a href="#Editing:%20Cut%20and%20Paste"><font >Editing: Cut and Paste</font></a>
+              </li>
+              <li>
+                <a href="#Search/Replace"><font >Search/Replace</font></a>
+              </li>
+              <li>
+                <a href="#One%20More%20for%20Advanced%20User"><font >One More for Advanced User</font></a>
+              </li>
+            </ol>
+            <a name="Save and Quit"></a>
+            <h3>
+              <font >a) Save and quit</font>
+            </h3>
+            <p>
+              <strong>:w</strong> : Save 
+            </p>
+            <p>
+              <strong>:x</strong> : Exit, saving changes 
+            </p>
+            <p>
+              <strong>:q</strong> : Exit as long as there have been no changes 
+            </p>
+            <p>
+              <strong>ZZ</strong> : Exit and save changes if any have been made 
+            </p>
+            <p>
+              <strong>:q!</strong> : Exit and ignore any changes 
+            </p>
+            <a href="#list">Go to list</a><a name="Moving the Cursor"></a>
+            <h3>
+              <font >b) Moving the Cursor</font>
+            </h3>
+            <p>
+               Vi is command line editor and its cursor position is not controlled by mouse(a very irritating component in my view), but by keyboard. Here is a list of controlling cursor position. Those commands are to be used in command line mode only. 
+            </p>
+            <p>
+              <strong>h</strong> : Move left 
+            </p>
+            <p>
+              <strong>l</strong> : Move right 
+            </p>
+            <p>
+              <strong>j</strong> : Move down 
+            </p>
+            <p>
+              <strong>k</strong> : Move up 
+            </p>
+            <p>
+              <strong>w</strong> : Move to next word 
+            </p>
+            <p>
+              <strong>W</strong> : Move to next blank delimited word 
+            </p>
+            <p>
+              <strong>b</strong> : Move to the beginning of the word 
+            </p>
+            <p>
+              <strong>B</strong> : Move to the beginning of blank delimted word 
+            </p>
+            <p>
+              <strong>e</strong> : Move to the end of the word 
+            </p>
+            <p>
+              <strong>E</strong> : Move to the end of Blank delimited word 
+            </p>
+            <p>
+              <strong>(</strong> : Move a sentance back 
+            </p>
+            <p>
+              <strong>)</strong> :Move a sentance forward 
+            </p>
+            <p>
+              <strong>{</strong> : Move a paragraph back 
+            </p>
+            <p>
+              <strong>}</strong> : Move a paragraph forward 
+            </p>
+            <p>
+              <strong>0</strong> : Move to the begining of the line 
+            </p>
+            <p>
+              <strong>$</strong> : Move to the end of the line 
+            </p>
+            <p>
+              <strong>1</strong> : GMove to the first line of the file 
+            </p>
+            <p>
+              <strong>G</strong> : Move to the last line of the file 
+            </p>
+            <p>
+              <strong>nG</strong> : Move to nth line of the file 
+            </p>
+            <p>
+              <strong>:n</strong> : Move to nth line of the file 
+            </p>
+            <p>
+              <strong>fc</strong> :Move forward to c 
+            </p>
+            <p>
+              <strong>Fc</strong> : Move back to c 
+            </p>
+            <p>
+              <strong>H</strong> :Move to top of screen 
+            </p>
+            <p>
+              <strong>M</strong> :Move to middle of screen 
+            </p>
+            <p>
+              <strong>L</strong> : Move to botton of screen 
+            </p>
+            <a href="#list">Go to list</a><a name="Inserting Text"></a>
+            <h3>
+              <font >c) Inserting Text</font>
+            </h3>
+            <p>
+               Now, the most importent thing is editing or writing to a new document. By command line, you can control where to put your new letter: 
+            </p>
+            <p>
+              <strong>i</strong> : Insert before cursor 
+            </p>
+            <p>
+              <strong>I</strong> : Insert before line 
+            </p>
+            <p>
+              <strong>a</strong> : Append after cursor 
+            </p>
+            <p>
+              <strong>A</strong> : Append after line 
+            </p>
+            <p>
+              <strong>o</strong> : Open a new line after current line 
+            </p>
+            <p>
+              <strong>O</strong> : Open a new line before current line 
+            </p>
+            <p>
+              <strong>r</strong> : Replace one character 
+            </p>
+            <a href="#list">Go to list</a><a name="Editing: Cut and Paste"></a>
+            <h3>
+              <font >d) Editing: Cut and Paste</font>
+            </h3>
+            <p>
+               Obviously you may be satisfied with using delete button to delete text through out your life and still remain happy, but you can't copy,right? There are so many other options in vim, tailor cutted for your requirments. Remember, this mode is also a command mode. 
+            </p>
+            <p>
+              <strong>d^</strong> : Deletes from current cursor position to the beginning of the line. 
+            </p>
+            <p>
+              <strong>d$</strong> : Deletes from current cursor position to the end of the line. 
+            </p>
+            <p>
+              <strong>dw</strong> : Deletes from current cursor position to the end of the word. 
+            </p>
+            <p>
+              <strong>dd</strong> : Deletes three lines from current cursor position downwards.(also <strong>:d</strong>) 
+            </p>
+            <p>
+              <strong>yy</strong> : Yank the current line (also <strong>:y</strong>) 
+            </p>
+            <p>
+              <strong>x</strong> : Delete a character next to the cursor 
+            </p>
+            <p>
+              <strong>X</strong> :Delete character to the left of cursor 
+            </p>
+            <p>
+              <strong>P</strong> : Paste line before the cursor 
+            </p>
+            <p>
+              <strong>p</strong> : Paste line after the cursor 
+            </p>
+            <p>
+              <strong>.</strong> : Repeat last edit command 
+            </p>
+            <p>
+              <strong>u</strong> : Undo last edit 
+            </p>
+            <p>
+              <strong>U</strong> : Undo changes to current line 
+            </p>
+            <p>
+              <strong>J</strong> : Join two lines 
+            </p>
+            <a href="#list">Go to list</a><a name="Search/Replace"></a>
+            <h3>
+              <font >e) Search/Replace</font>
+            </h3>
+            <p>
+              <strong>/pattern</strong> : search for pattern 
+            </p>
+            <p>
+              <strong>?pattern</strong> : search backward for pattern 
+            </p>
+            <p>
+              <strong>n</strong> :repeat search in same direction 
+            </p>
+            <p>
+              <strong>N</strong> : repeat search in opposite direction 
+            </p>
+            <p>
+              <strong>:%s/old/new/g</strong> : replace all old with new throughout file 
+            </p>
+            <p>
+              <strong>:%s/old/new/gc</strong> : replace all old with new throughout file with confirmations 
+            </p>
+            <a href="#list">Go to list</a>
+            <br>
+            <a name="One More for Advanced User"></a>
+            <h3>
+              <a name="One More for Advanced User"><font >f) One More for Advanced</font></a>
+            </h3>
+            <a name="One More for Advanced User">There are so many way to save your time: allowing you to type less; and I am afraid I hardly know all of them. But here is my favourite one: <em><u>abbriviation</u></em><br> When you are in need to use some given phrase(or word, to say) over and over, you can save time just by making an abbriviation All you have to do is to let vim understand when you type "g", you actually mean <font color="Blue"> http://www.google.com</font>. When you invoke vim, it reads the <u>.vimrc</u> file either in root or your own account. So to let vim know this, just put <br>
+            </a>
+            <div align="center">
+              <a name="One More for Advanced User"><em>abb g http://www.google.com</em></a>
+            </div>
+            <a name="One More for Advanced User">. then whenever you want to apply this, type "g" followed "space"; this is necessary so that vim will not confuse itself when you want to type "go". </a>
+            <div align="center">
+              <a name="One More for Advanced User"><em><font  size="+2">Happy Vimming</font></em></a>
+            </div>
+            <hr>
+            <a name="One More for Advanced User"> </a>
+          </div></div><a name="One More for Advanced User"><i>Rudra Banerjee 2007-6-1</i>
+</a></td></tr></tr></td></div>
+    <div id="footermainPan">
+      <div id="footerPan">
+        <ul>
+          <li>
+            <a href="http://www2.warwick.ac.uk/fac/sci/physics/staff/research/banerjeer">Personal Home Page</a>| 
+          </li>
+          <li>
+            <a href="http://www2.warwick.ac.uk/fac/sci/physics/" target="_blank">Department of Physics page</a>  
+          </li>
+   <!--       <li>
+            <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-html401-blue" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+          </li>!-->
+        </ul>
+      </div>
+    </div> 
+
+          </body></html>
